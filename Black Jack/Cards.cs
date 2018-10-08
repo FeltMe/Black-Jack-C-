@@ -11,7 +11,6 @@ namespace Black_Jack
         public string Name { get; set; }
         public int Value { get; set; }
 
-
         public override string ToString()
         {
             return $"Name = {Name}, Value = {Value}";

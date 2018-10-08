@@ -47,9 +47,11 @@
     <Compile Include="Cards.cs" />
     <Compile Include="Decks.cs" />
     <Compile Include="Diller.cs" />
+    <Compile Include="Interface1.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Randomise.cs" />
     <Compile Include="Start.cs" />
   </ItemGroup>
   <ItemGroup>
