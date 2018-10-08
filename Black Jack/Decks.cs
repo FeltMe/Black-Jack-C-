@@ -10,6 +10,7 @@ namespace Black_Jack
     {
         public Cards card = new Cards();
         public List<Cards> deck = new List<Cards>();
+        public List<Cards> Second = new List<Cards>();
 
         public List<Cards> ReturnDeck()
         {
@@ -22,10 +23,20 @@ namespace Black_Jack
             {
                 for (int j = 0; j < 4; j++)
                 {
-                 deck.Add()
+                 Cards temp = new Cards();
+                 deck.Add(temp.Value = ValueCard);
                 }
+                ValueCard++;
             }
         }
-
+        public Cards ReturnOneCard()
+        {
+            Cards cards = new Cards();
+            int temp_rnd;
+            temp_rnd = Randomise.Random.Next(deck.First, deck.Last); 
+            Second = deck[temp_rnd];
+            deck.Remove(temp_rnd);
+            return cards;
+        }
     }
 }

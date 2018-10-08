@@ -13,7 +13,7 @@ namespace Black_Jack
 
         public override string ToString()
         {
-            return $"Name = {Name}, Value = {Value}";
+            return $"Card = {Name}, Value = {Value}";
         }
     }
 }

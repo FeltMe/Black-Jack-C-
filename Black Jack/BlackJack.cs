@@ -8,6 +8,7 @@ namespace Black_Jack
 {
     class BlackJack
     {   
-
+        Deck deck = new Deck();
+        
     }
 }
