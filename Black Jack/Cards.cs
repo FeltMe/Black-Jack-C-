@@ -6,14 +6,38 @@ using System.Threading.Tasks;
 
 namespace Black_Jack
 {
-    class Cards
+    public enum CardSuit
     {
-        public string Name { get; set; }
-        public int Value { get; set; }
+        HEARTS,
+        TILES,
+        CLOVERS,
+        PIKES
+    }
 
+    public enum CardValue
+    {
+        Ace,
+        Two,
+        Three,
+        Four,
+        Five,
+        Six,
+        Seven,
+        Eight,
+        Nine,
+        Ten,
+        Servant,
+        Queen,
+        King
+    }
+
+    public class Cards
+    {
+        public CardValue Value { get; set; }
+        public CardSuit Suit { get; set; }
         public override string ToString()
         {
-            return $"Card = {Name}, Value = {Value}";
+            return $"Value = {Value}, {Suit}";
         }
     }
 }

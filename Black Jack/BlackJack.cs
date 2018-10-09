@@ -8,7 +8,11 @@ namespace Black_Jack
 {
     class BlackJack
     {   
-        Deck deck = new Deck();
-        
+        public Deck deck = new Deck();
+        public void Start()
+        {
+            deck.FillDeck();
+            deck.PrintDeck();
+        }
     }
 }

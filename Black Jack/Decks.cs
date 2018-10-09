@@ -3,40 +3,46 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading;
 
 namespace Black_Jack
 {
     class Deck
     {
-        public Cards card = new Cards();
-        public List<Cards> deck = new List<Cards>();
-        public List<Cards> Second = new List<Cards>();
-
-        public List<Cards> ReturnDeck()
+        public Cards[] CardsArr = new Cards[52];
+        public void FillDeck()
         {
-            return deck;
-        }
-        public void SetCurentDeck()
-        {
-            int ValueCard = 2;
+            CardSuit TempCardSuit = default(CardSuit);
+            CardValue TempCardValue = default(CardValue);
             for (int i = 0; i < 13; i++)
             {
                 for (int j = 0; j < 4; j++)
                 {
-                 Cards temp = new Cards();
-                 deck.Add(temp.Value = ValueCard);
+                    Cards TempCard = new Cards();
+
+                    if (i % 13 == 0)
+                    {
+                        TempCardSuit++;
+                        TempCardValue = 0;
+                    }
+                    else if(i % 13 == 1)
+                    {
+                        TempCard.Value = TempCardValue;
+                    }
                 }
-                ValueCard++;
+            }
+        }
+        public void PrintDeck()
+        {
+            foreach (var item in CardsArr)
+            {
+                Console.WriteLine(item.ToString());
+                Thread.Sleep(200);
             }
         }
         public Cards ReturnOneCard()
         {
-            Cards cards = new Cards();
-            int temp_rnd;
-            temp_rnd = Randomise.Random.Next(deck.First, deck.Last); 
-            Second = deck[temp_rnd];
-            deck.Remove(temp_rnd);
-            return cards;
+            return new Cards();
         }
     }
 }

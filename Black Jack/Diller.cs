@@ -8,5 +8,6 @@ namespace Black_Jack
 {
     class Diller
     {
+
     }
 }

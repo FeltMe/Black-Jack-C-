@@ -6,13 +6,12 @@ using System.Threading.Tasks;
 
 namespace Black_Jack
 {
-    class Program
+    class Suit
     {
-        static void Main(string[] args)
+        public string CardSuit { get; set; }
+        public override string ToString()
         {
-         BlackJack blackJack = new BlackJack();
-         blackJack.Start();
+            return $"Suit = {CardSuit}";
         }
     }
 }
-
