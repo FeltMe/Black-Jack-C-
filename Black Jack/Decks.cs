@@ -14,21 +14,80 @@ namespace Black_Jack
         {
             CardSuit TempCardSuit = default(CardSuit);
             CardValue TempCardValue = default(CardValue);
-            for (int i = 0; i < 13; i++)
+
+            for (int i = 0; i < 4; i++)
             {
-                for (int j = 0; j < 4; j++)
+                TempCardSuit++;
+                for (int j = 0; j < 13; j++)
                 {
                     Cards TempCard = new Cards();
 
-                    if (i % 13 == 0)
+                    if (j % 13 == 0)
                     {
-                        TempCardSuit++;
                         TempCardValue = 0;
-                    }
-                    else if(i % 13 == 1)
-                    {
                         TempCard.Value = TempCardValue;
                     }
+                    else if(j % 13 == 1)
+                    {
+                        TempCardValue++;
+                        TempCard.Value = TempCardValue;
+                    }
+                    else if (j % 13 == 2)
+                    {
+                        TempCardValue++;
+                        TempCard.Value = TempCardValue;
+                    }
+                    else if (j % 13 == 3)
+                    {
+                        TempCardValue++;
+                        TempCard.Value = TempCardValue;
+                    }
+                    else if (j % 13 == 4)
+                    {
+                        TempCardValue++;
+                        TempCard.Value = TempCardValue;
+                    }
+                    else if (j % 13 == 5)
+                    {
+                        TempCardValue++;
+                        TempCard.Value = TempCardValue;
+                    }
+                    else if (j % 13 == 6)
+                    {
+                        TempCardValue++;
+                        TempCard.Value = TempCardValue;
+                    }
+                    else if (j % 13 == 7)
+                    {
+                        TempCardValue++;
+                        TempCard.Value = TempCardValue;
+                    }
+                    else if (j % 13 == 8)
+                    {
+                        TempCardValue++;
+                        TempCard.Value = TempCardValue;
+                    }
+                    else if (j % 13 == 9)
+                    {
+                        TempCardValue++;
+                        TempCard.Value = TempCardValue;
+                    }
+                    else if (j % 13 == 10)
+                    {
+                        TempCardValue++;
+                        TempCard.Value = TempCardValue;
+                    }
+                    else if (j % 13 == 11)
+                    {
+                        TempCardValue++;
+                        TempCard.Value = TempCardValue;
+                    }
+                    else if (j % 13 == 12)
+                    {
+                        TempCardValue++;
+                        TempCard.Value = TempCardValue;
+                    }
+                     = TempCard;
                 }
             }
         }
