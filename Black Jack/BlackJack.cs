@@ -25,25 +25,35 @@ namespace Black_Jack
                 PrintChoises();
                 string choise = Console.ReadLine();
                 menu = ConvertChoise(choise);
+                
                 switch (menu)
                 {
                     case 1:
                         {
+                            int temp_rnd_i = Randomise.Random.Next(0, 9);
+                            int temp_rnd_j = Randomise.Random.Next(0, 53);
                             Console.WriteLine("Stand");
-
+                            player.Stand();
+                            diller.HitOneCard(decks[temp_rnd_i].CardsArr[temp_rnd_j]);
+                            Console.WriteLine("diller.Points"); 
                         }
                         break;
                     case 2:
                         {
-                            Console.WriteLine("Hit");   
-
+                            Console.WriteLine("Hit");
+                            player.Hit();
 
                         } break;
                     case 3:
                         {
                             Console.WriteLine("DobleDown");
+                            player.DobleDown();
 
-
+                        }break;
+                    case 4:
+                        {
+                            Console.WriteLine("Surender");
+                            player.Surrender();
                         }break;
                     default:
                         {
@@ -131,7 +141,12 @@ namespace Black_Jack
             Console.WriteLine("Enter 1 to Stand");
             Console.WriteLine("Enter 2 to Hit");
             Console.WriteLine("Enter 3 to DoubleDown");
+            Console.WriteLine("Enter 3 to Surrender");
             Console.WriteLine();
+        }
+        public void ComparisonPoints()
+        {
+
         }
     }
 }

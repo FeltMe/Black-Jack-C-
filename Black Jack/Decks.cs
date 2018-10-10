@@ -119,10 +119,6 @@ namespace Black_Jack
                 Thread.Sleep(200);
             }
         }
-        public Cards ReturnOneCard()
-        {
-            return new Cards();
-        }
         public Cards[] RetrunArrCards()
         {
             return CardsArr;

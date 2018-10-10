@@ -34,6 +34,10 @@ namespace Black_Jack
         {
 
         }
+        public void Surrender()
+        {
+
+        }
 
     }
 }
