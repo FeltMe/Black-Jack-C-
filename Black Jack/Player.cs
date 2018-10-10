@@ -30,7 +30,7 @@ namespace Black_Jack
         {
 
         }
-        public void Split()
+        public void DobleDown()
         {
 
         }

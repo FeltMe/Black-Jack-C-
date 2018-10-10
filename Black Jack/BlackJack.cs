@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
+using System.IO;
 
 namespace Black_Jack
 {
@@ -13,27 +14,42 @@ namespace Black_Jack
         public Player player = new Player();
         public Diller diller = new Diller();
         public void Start()
-        {
-            Console.WriteLine(this.player.ToString());
-            Console.WriteLine(this.diller.ToString());
-            SetEightDecks();
+        {   
             int menu = 0;
+            PrintInfoPD();
+            SetEightDecks();
+            IncludeFile();
+
             while (true)
             {
-                Console.WriteLine("Enter 1 to");
+                PrintChoises();
                 string choise = Console.ReadLine();
                 menu = ConvertChoise(choise);
                 switch (menu)
                 {
                     case 1:
-                        Console.WriteLine("Case 1");
+                        {
+                            Console.WriteLine("Stand");
+
+                        }
                         break;
                     case 2:
-                        Console.WriteLine("Case 2");
-                        break;
+                        {
+                            Console.WriteLine("Hit");   
+
+
+                        } break;
+                    case 3:
+                        {
+                            Console.WriteLine("DobleDown");
+
+
+                        }break;
                     default:
-                        Console.WriteLine("Default case");
-                        break;
+                        {
+                            Console.WriteLine("Eror 404");
+                            Thread.Sleep(1000);
+                        } break;
                 }
             }
         }
@@ -62,6 +78,60 @@ namespace Black_Jack
         public int ConvertChoise(string choise)
         {
             return Convert.ToInt32(choise);
+        }
+        public void CreateAndWriteToFilePerson()
+        {
+            using (FileStream file = File.Open(@"D:\BlackJacjInfo.txt", FileMode.OpenOrCreate, FileAccess.Write))
+            {
+                using (var writer = new StreamWriter(file))
+                {
+                    writer.Write(player.Name);
+                    writer.Write(player.Money);
+                    writer.Write(player.Age);
+                    writer.Write(diller.Name);
+                }
+            }
+        }
+        public void WriteDecksToFile()
+        {
+            using (FileStream file = File.Open(@"D:\BlackJacjInfo.txt", FileMode.Open, FileAccess.Write))
+            {
+                using (var writer = new StreamWriter(file))
+                {
+                    foreach (var item in decks)
+                    {
+                        foreach (var item_2 in item.CardsArr)
+                        {
+                            writer.Write(item_2.Value);
+                            writer.Write(item_2.Suit);
+                        }
+                    }
+                }
+            }
+        }
+        public void IncludeFile()
+        {
+            try
+            {
+                CreateAndWriteToFilePerson();
+                WriteDecksToFile();
+            }
+            catch (Exception e)
+            {
+                e.ToString();
+            }
+        }
+        public void PrintInfoPD()
+        {
+            Console.WriteLine(this.player.ToString());
+            Console.WriteLine(this.diller.ToString());
+        }
+        public void PrintChoises()
+        {
+            Console.WriteLine("Enter 1 to Stand");
+            Console.WriteLine("Enter 2 to Hit");
+            Console.WriteLine("Enter 3 to DoubleDown");
+            Console.WriteLine();
         }
     }
 }
