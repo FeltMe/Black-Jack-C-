@@ -135,11 +135,13 @@ namespace Black_Jack
         }
         public Deck Shuffle(Deck CurentCardsArr)
         {
-            for (int i = 0; i < 10; i++)
+            int temp_min = Randomise.Random.Next(3, 10);
+            for (int i = 0; i < temp_min; i++)
             {
                 for (int j = 0; j < 26; j++)
                 {
                     Swap(ref CurentCardsArr.CardsArr[j], ref CurentCardsArr.CardsArr[j * 2]);
+                    Swap(ref CurentCardsArr.CardsArr[0], ref CurentCardsArr.CardsArr[j]);
                 }
             }
             return CurentCardsArr;

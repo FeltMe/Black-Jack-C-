@@ -10,10 +10,16 @@ namespace Black_Jack
     class BlackJack
     {
         public Deck[] decks = new Deck[8];
+        Player player = new Player();
+        Diller diller = new Diller();
         public void Start()
         {
+            Console.WriteLine(this.player.ToString());
+            Console.WriteLine(this.diller.ToString());
             SetEightDecks();
-            PrintAllDecks();       
+            PrintAllDecks();
+
+
         }
         public void SetEightDecks()
         {

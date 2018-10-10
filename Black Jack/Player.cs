@@ -22,6 +22,18 @@ namespace Black_Jack
         {
             return $"Name = {Name}, Age = {Age}, Money = {Money}";
         }
+        public void Stand()
+        {
+
+        }
+        public void Hit()
+        {
+
+        }
+        public void Split()
+        {
+
+        }
 
     }
 }
