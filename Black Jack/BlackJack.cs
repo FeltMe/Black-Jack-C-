@@ -14,6 +14,9 @@ namespace Black_Jack
         public Player player = new Player();
         public Diller diller = new Diller();
         public int TotalBank { get; set; }
+
+
+
         public void Start()
         {   
             int menu = 0;
@@ -23,7 +26,10 @@ namespace Black_Jack
 
             while (true)
             {
-                Choises();    
+                menu = Choises();
+                TotalBank += player.FillBet();
+                TotalBank += diller.FillBet();
+
                 switch (menu)
                 {
                     case 1:
@@ -158,23 +164,29 @@ namespace Black_Jack
         {
             if(player.Points > diller.Points)
             {
-                player.Win(diller.Bet);
+                player.Win(TotalBank);
                 diller.Lost();
             }
             else if(player.Points == diller.Points)
             {
-                player.Win(diller.Bet);
+                player.Win(TotalBank);
                 diller.Lost();
             }
             else
             {
                 player.Lost();
-                diller.Win(player.Bet);
+                diller.Win(TotalBank);
             }
         }
         public void Hit()
         {
+            int temp_rnd_i = Randomise.Random.Next(0, 8);
+            int temp_rnd_j = Randomise.Random.Next(0, 53);
+            int temp_rnd_i_2 = Randomise.Random.Next(0, 8);
+            int temp_rnd_j_2 = Randomise.Random.Next(0, 53);
 
+            player.HitOneCard(decks[temp_rnd_i].CardsArr[temp_rnd_j]);
+            diller.HitOneCard(decks[temp_rnd_i_2].CardsArr[temp_rnd_j_2]);
         }
         public void DobleDown()
         {
