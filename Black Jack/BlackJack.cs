@@ -10,8 +10,8 @@ namespace Black_Jack
     class BlackJack
     {
         public Deck[] decks = new Deck[8];
-        Player player = new Player();
-        Diller diller = new Diller();
+        public Player player = new Player();
+        public Diller diller = new Diller();
         public void Start()
         {
             Console.WriteLine(this.player.ToString());
@@ -61,6 +61,7 @@ namespace Black_Jack
         }
         public int ConvertChoise(string choise)
         {
-         return Convert.ToInt32(choise);
+            return Convert.ToInt32(choise);
         }
     }
+}
