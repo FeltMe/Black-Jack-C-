@@ -108,11 +108,10 @@ namespace Black_Jack
             this.Points = 0;
             this.Bet = 0;
         }
-        public int Lost(int money)
+        public void Lost()
         {
-            this.Money -= money;
+            this.Money -= Bet;
             Console.WriteLine("Diller Lost!!");
-            return Bet;
         }
         public override string ToString()
         {

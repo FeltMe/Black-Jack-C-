@@ -23,23 +23,7 @@ namespace Black_Jack
             Money = Randomise.Random.Next(1000, 2000);
             Name = "User";
         }
-        
-        public void Stand()
-        {
 
-        }
-        public void Hit()
-        {
-
-        }
-        public void DobleDown()
-        {
-
-        }
-        public void Surrender()
-        {
-
-        }
         public void Win(int money)
         {
             this.Money += money;
@@ -47,10 +31,10 @@ namespace Black_Jack
             this.Points = 0;
             this.Bet = 0;
         }
-        public int Lost()
+        public void Lost()
         {
+            this.Money -= Bet;
             Console.WriteLine("Diller Lost!!");
-            return Bet;
         }
         public int FillBet()
         {
@@ -61,6 +45,7 @@ namespace Black_Jack
             Money -= Bet;
             return Bet;
         }
+
         public override string ToString()
         {
             return $"Name = {Name}, Age = {Age}, Money = {Money}";

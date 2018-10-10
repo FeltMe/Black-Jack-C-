@@ -23,37 +23,31 @@ namespace Black_Jack
 
             while (true)
             {
-                PrintChoises();
-                string choise = Console.ReadLine();
-                menu = ConvertChoise(choise);
-                
+                Choises();    
                 switch (menu)
                 {
                     case 1:
                         {
                             Console.WriteLine("Stand");
-                            player.Stand();
-                            int temp_rnd_i = Randomise.Random.Next(0, 8);
-                            int temp_rnd_j = Randomise.Random.Next(0, 53);
-                            
+                            Stand();
                         }
                         break;
                     case 2:
                         {
                             Console.WriteLine("Hit");
-                            player.Hit();
+                            Hit();
 
                         } break;
                     case 3:
                         {
                             Console.WriteLine("DobleDown");
-                            player.DobleDown();
+                            DobleDown();
 
                         }break;
                     case 4:
                         {
                             Console.WriteLine("Surender");
-                            player.Surrender();
+                            Surrender();
                         }break;
                     default:
                         {
@@ -62,6 +56,18 @@ namespace Black_Jack
                         } break;
                 }
             }
+        }
+        public Cards CardDrop()
+        {
+            Cards temp = new Cards();
+            int temp_rnd_i = Randomise.Random.Next(0, 8);
+            int temp_rnd_j = Randomise.Random.Next(0, 53);
+            temp = decks[temp_rnd_i].CardsArr[temp_rnd_j];
+            return temp;
+        }
+        public int ConvertChoise(string choise)
+        {
+            return Convert.ToInt32(choise);
         }
         public void SetEightDecks()
         {
@@ -84,10 +90,6 @@ namespace Black_Jack
                     Thread.Sleep(50);
                 }
             }
-        }
-        public int ConvertChoise(string choise)
-        {
-            return Convert.ToInt32(choise);
         }
         public void CreateAndWriteToFilePerson()
         {
@@ -136,25 +138,51 @@ namespace Black_Jack
             Console.WriteLine(this.player.ToString());
             Console.WriteLine(this.diller.ToString());
         }
-        public void PrintChoises()
+        public int Choises()
         {
+            int menu;
             Console.WriteLine("Enter 1 to Stand");
             Console.WriteLine("Enter 2 to Hit");
             Console.WriteLine("Enter 3 to DoubleDown");
             Console.WriteLine("Enter 3 to Surrender");
             Console.WriteLine();
+            string choise = Console.ReadLine();
+            menu = ConvertChoise(choise);
+            return menu;
         }
         public void ComparisonPoints()
         {
 
         }
-        public Cards FirstDrop()
+        public void Stand()
         {
-            Cards temp = new Cards();
-            int temp_rnd_i = Randomise.Random.Next(0, 8);
-            int temp_rnd_j = Randomise.Random.Next(0, 53);
-            temp = decks[temp_rnd_i].CardsArr[temp_rnd_j];
-            return temp;
+            if(player.Points > diller.Points)
+            {
+                player.Win(diller.Bet);
+                diller.Lost();
+            }
+            else if(player.Points == diller.Points)
+            {
+                player.Win(diller.Bet);
+                diller.Lost();
+            }
+            else
+            {
+                player.Lost();
+                diller.Win(player.Bet);
+            }
+        }
+        public void Hit()
+        {
+
+        }
+        public void DobleDown()
+        {
+
+        }
+        public void Surrender()
+        {
+
         }
     }
 }
