@@ -13,6 +13,7 @@ namespace Black_Jack
             Console.ForegroundColor = ConsoleColor.Green;
             BlackJack blackJack = new BlackJack();
             blackJack.Start();
+            
         }
     }
 }

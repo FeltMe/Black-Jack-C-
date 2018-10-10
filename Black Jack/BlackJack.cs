@@ -13,7 +13,7 @@ namespace Black_Jack
         public void Start()
         {
             SetEightDecks();
-            PrintAllDecks();
+            PrintAllDecks();       
         }
         public void SetEightDecks()
         {
@@ -21,6 +21,7 @@ namespace Black_Jack
             {
                 Deck temp_deck = new Deck();
                 temp_deck.FillDeck();
+                temp_deck = temp_deck.Shuffle(temp_deck);
                 decks[i] = temp_deck;
             }
         }
@@ -28,6 +29,7 @@ namespace Black_Jack
         {
             foreach (var item in decks)
             {
+                Console.WriteLine($"Next Deck");
                 foreach (var item_2 in item.CardsArr)
                 {
                     Console.WriteLine(item_2.ToString());

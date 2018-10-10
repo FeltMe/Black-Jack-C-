@@ -127,18 +127,22 @@ namespace Black_Jack
         {
             return CardsArr;
         }
-        public Cards[] Shuffle(Cards[] CurentCardsArr)
+        public static void Swap<T>(ref T lhs, ref T rhs)
         {
-            Cards[] ShuffleCards = new Cards[52];
-
-            for (int i = 0; i < 52; i++)
-            {
-                int Temp_rnd = Randomise.Random.Next(0, CurentCardsArr.Length);
-
-
-            }
-            return ShuffleCards;
+            T temp = lhs;
+            lhs = rhs;
+            rhs = temp;
         }
-
+        public Deck Shuffle(Deck CurentCardsArr)
+        {
+            for (int i = 0; i < 10; i++)
+            {
+                for (int j = 0; j < 26; j++)
+                {
+                    Swap(ref CurentCardsArr.CardsArr[j], ref CurentCardsArr.CardsArr[j * 2]);
+                }
+            }
+            return CurentCardsArr;
+        }
     }
 }
