@@ -146,5 +146,9 @@ namespace Black_Jack
             }
             return CurentCardsArr;
         }
+        public Cards ReturnOneCardFromDecks(Deck[] decks, int i, int j)
+        {
+            return decks[i].CardsArr[j];
+        }
     }
 }

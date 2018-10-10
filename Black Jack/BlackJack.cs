@@ -17,9 +17,25 @@ namespace Black_Jack
             Console.WriteLine(this.player.ToString());
             Console.WriteLine(this.diller.ToString());
             SetEightDecks();
-            PrintAllDecks();
-
-
+            int menu = 0;
+            while (true)
+            {
+                Console.WriteLine("Enter 1 to");
+                string choise = Console.ReadLine();
+                menu = ConvertChoise(choise);
+                switch (menu)
+                {
+                    case 1:
+                        Console.WriteLine("Case 1");
+                        break;
+                    case 2:
+                        Console.WriteLine("Case 2");
+                        break;
+                    default:
+                        Console.WriteLine("Default case");
+                        break;
+                }
+            }
         }
         public void SetEightDecks()
         {
@@ -43,5 +59,8 @@ namespace Black_Jack
                 }
             }
         }
+        public int ConvertChoise(string choise)
+        {
+         return Convert.ToInt32(choise);
+        }
     }
-}
