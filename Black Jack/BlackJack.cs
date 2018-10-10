@@ -30,12 +30,20 @@ namespace Black_Jack
                 {
                     case 1:
                         {
-                            int temp_rnd_i = Randomise.Random.Next(0, 9);
+                            int temp_rnd_i = Randomise.Random.Next(0, 8);
                             int temp_rnd_j = Randomise.Random.Next(0, 53);
                             Console.WriteLine("Stand");
                             player.Stand();
-                            diller.HitOneCard(decks[temp_rnd_i].CardsArr[temp_rnd_j]);
-                            Console.WriteLine("diller.Points"); 
+                            Console.WriteLine();
+                            if (diller.IsHitCards() == true)
+                            {
+                                diller.HitOneCard(decks[temp_rnd_i].CardsArr[temp_rnd_j]);
+                            }
+                            else
+                            {
+
+                            }
+                            Console.WriteLine($"Diller card : {diller.Value} , his value = {diller.Points}"); 
                         }
                         break;
                     case 2:
