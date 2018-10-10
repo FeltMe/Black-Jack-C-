@@ -10,9 +10,9 @@ namespace Black_Jack
     {
         static void Main(string[] args)
         {
-         BlackJack blackJack = new BlackJack();
-         blackJack.Start();
+            Console.ForegroundColor = ConsoleColor.Green;
+            BlackJack blackJack = new BlackJack();
+            blackJack.Start();
         }
     }
 }
-

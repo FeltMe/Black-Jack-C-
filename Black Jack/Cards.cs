@@ -37,7 +37,7 @@ namespace Black_Jack
         public CardSuit Suit { get; set; }
         public override string ToString()
         {
-            return $"Value = {Value}, {Suit}";
+            return $"Value = {Value}, Suit = {Suit}";
         }
     }
 }
