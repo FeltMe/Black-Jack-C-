@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Black_Jack
 {
-    interface Interface1
+    interface IPersom_who_play
     {
+
     }
 }

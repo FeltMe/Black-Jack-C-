@@ -13,6 +13,7 @@ namespace Black_Jack
         public Deck[] decks = new Deck[8];
         public Player player = new Player();
         public Diller diller = new Diller();
+        public int TotalBank { get; set; }
         public void Start()
         {   
             int menu = 0;
@@ -30,20 +31,11 @@ namespace Black_Jack
                 {
                     case 1:
                         {
-                            int temp_rnd_i = Randomise.Random.Next(0, 8);
-                            int temp_rnd_j = Randomise.Random.Next(0, 53);
                             Console.WriteLine("Stand");
                             player.Stand();
-                            Console.WriteLine();
-                            if (diller.IsHitCards() == true)
-                            {
-                                diller.HitOneCard(decks[temp_rnd_i].CardsArr[temp_rnd_j]);
-                            }
-                            else
-                            {
-
-                            }
-                            Console.WriteLine($"Diller card : {diller.Value} , his value = {diller.Points}"); 
+                            int temp_rnd_i = Randomise.Random.Next(0, 8);
+                            int temp_rnd_j = Randomise.Random.Next(0, 53);
+                            
                         }
                         break;
                     case 2:
@@ -155,6 +147,14 @@ namespace Black_Jack
         public void ComparisonPoints()
         {
 
+        }
+        public Cards FirstDrop()
+        {
+            Cards temp = new Cards();
+            int temp_rnd_i = Randomise.Random.Next(0, 8);
+            int temp_rnd_j = Randomise.Random.Next(0, 53);
+            temp = decks[temp_rnd_i].CardsArr[temp_rnd_j];
+            return temp;
         }
     }
 }
