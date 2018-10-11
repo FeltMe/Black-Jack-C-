@@ -107,18 +107,19 @@ namespace Black_Jack
         public void Win(int money)
         {
             this.Money += money;
-            Console.WriteLine("Diller Win!!");
+            Console.WriteLine("Player Win!!");
             this.Points = 0;
             this.Bet = 0;
         }
         public void Lost()
         {
             this.Money -= Bet;
-            Console.WriteLine("Diller Lost!!");
+            Console.WriteLine("Player Lost!!");
+            this.Points = 0;
         }
         public int FillBet()
         {
-            Console.WriteLine("Enter Bet = ");
+            Console.Write("Enter Bet = ");
             string temp = Console.ReadLine();
             int temp_bet = Convert.ToInt32(temp);
             Bet = temp_bet;

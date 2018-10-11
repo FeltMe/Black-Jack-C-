@@ -21,45 +21,57 @@ namespace Black_Jack
         {   
             int menu = 0;
             PrintInfoPD();
+            Console.WriteLine("");
             SetEightDecks();
             IncludeFile();
 
             while (true)
             {
-                menu = Choises();
                 TotalBank += player.FillBet();
                 TotalBank += diller.FillBet();
 
-                switch (menu)
+                while (TotalBank != 0)
                 {
-                    case 1:
-                        {
-                            Console.WriteLine("Stand");
-                            Stand();
-                        }
-                        break;
-                    case 2:
-                        {
-                            Console.WriteLine("Hit");
-                            Hit();
+                    Console.WriteLine("");
+                    Console.WriteLine($"Diller points = {diller.Points}");
+                    Console.WriteLine($"Player points = {player.Points}");
+                    Console.WriteLine("");
+                    menu = Choises();
+                    switch (menu)
+                    {
+                        case 1:
+                            {
+                                Console.WriteLine("\t\t\t\tStand");
+                                Stand();
+                            }
+                            break;
+                        case 2:
+                            {
+                                Console.WriteLine("\t\t\t\tHit");
+                                Hit();
 
-                        } break;
-                    case 3:
-                        {
-                            Console.WriteLine("DobleDown");
-                            DobleDown();
+                            }
+                            break;
+                        case 3:
+                            {
+                                Console.WriteLine("\t\t\t\tDobleDown");
+                                DobleDown();
 
-                        }break;
-                    case 4:
-                        {
-                            Console.WriteLine("Surender");
-                            Surrender();
-                        }break;
-                    default:
-                        {
-                            Console.WriteLine("Eror 404");
-                            Thread.Sleep(1000);
-                        } break;
+                            }
+                            break;
+                        case 4:
+                            {
+                                Console.WriteLine("\t\t\t\tSurender");
+                                Surrender();
+                            }
+                            break;
+                        default:
+                            {
+                                Console.WriteLine("\t\tEror 404");
+                                Thread.Sleep(1000);
+                            }
+                            break;
+                    }
                 }
             }
         }
@@ -151,14 +163,9 @@ namespace Black_Jack
             Console.WriteLine("Enter 2 to Hit");
             Console.WriteLine("Enter 3 to DoubleDown");
             Console.WriteLine("Enter 3 to Surrender");
-            Console.WriteLine();
             string choise = Console.ReadLine();
             menu = ConvertChoise(choise);
             return menu;
-        }
-        public void ComparisonPoints()
-        {
-
         }
         public void Stand()
         {
@@ -166,16 +173,19 @@ namespace Black_Jack
             {
                 player.Win(TotalBank);
                 diller.Lost();
+                TotalBank = 0;
             }
-            else if(player.Points == diller.Points)
+            else if(player.Points == diller.Points && player.Points != 0 && diller.Points != 0)
             {
                 player.Win(TotalBank);
                 diller.Lost();
+                TotalBank = 0;
             }
             else
             {
                 player.Lost();
                 diller.Win(TotalBank);
+                TotalBank = 0;
             }
         }
         public void Hit()
@@ -190,11 +200,14 @@ namespace Black_Jack
         }
         public void DobleDown()
         {
-
+            TotalBank += player.FillBet();
+            TotalBank += diller.FillBet();
         }
         public void Surrender()
         {
-
+            diller.Win(TotalBank);
+            player.Lost();
+            TotalBank = 0;
         }
     }
 }

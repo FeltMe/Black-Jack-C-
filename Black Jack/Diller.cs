@@ -122,19 +122,21 @@ namespace Black_Jack
         {
             this.Money -= Bet;
             Console.WriteLine("Diller Lost!!");
+            this.Points = 0;
         }
-        public override string ToString()
-        {
-            return $"Name = {Name}, Points = {Points}, Suit = {this.Value}";
-        }
+        
         public int FillBet()
         {
-            Console.WriteLine("Enter Bet = ");
+            Console.Write("Enter Bet = ");
             string temp = Console.ReadLine();
             int temp_bet = Convert.ToInt32(temp);
             Bet = temp_bet;
             Money -= Bet;
             return Bet;
+        }
+        public override string ToString()
+        {
+            return $"Name = {Name}, Points = {Points}, Suit = {this.Value}";
         }
 
     }

@@ -11,10 +11,6 @@ namespace Black_Jack
     {
         public Cards[] CardsArr = new Cards[52];
 
-        public Deck()
-        {
-
-        }
         public void FillDeck()
         {
             CardSuit TempCardSuit = default(CardSuit);
